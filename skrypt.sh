@@ -9,6 +9,7 @@ while test $# -gt 0; do
 	  echo "                       w każdym pliku jest jego nazwa, nazwa skryptu który go utworzył i data"
 	  echo "skrypt.sh --logs N -   tworzy N plików o nazwach logx.txt, gdzie x to numer pliku"
 	  echo "                       w każdym pliku jest jego nazwa, nazwa skryptu który go utworzył i data"
+	  echo "skrypt.sh --init   -   klonuje całe repozytorium do katalogu w którym został uruchomiony oraz ustawia ścieżkę w zmiennej środowiskowej PATH"
 	  echo "skrypt.sh --help   -   pokazuje te informacje"
       exit 0
       ;;
@@ -16,6 +17,12 @@ while test $# -gt 0; do
 	  shift
       date
       ;;
+	-i|--init)
+	  git clone git@github.com:NZygmunt/Lista3_lab4.git
+	  MYPATH=`pwd`
+	  export PATH=$PATH:$MYPATH
+	  exit 0
+	  ;;
     -l|--logs)
 	  shift
 	  MAX=100
