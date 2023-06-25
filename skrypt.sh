@@ -12,11 +12,11 @@ while test $# -gt 0; do
 	  echo "skrypt.sh --help   -   pokazuje te informacje"
       exit 0
       ;;
-    --date)
+    -d|--date)
 	  shift
       date
       ;;
-    --logs)
+    -l|--logs)
 	  shift
 	  MAX=100
       if test $# -gt 0; then
